@@ -1,26 +1,31 @@
+
 public class Main {
 
-	public static void main(String[] args) {
-		
-		System.out.println("simulador de processos A3");
-		
-		
-		//1 - id
-		//2- Tempo de chegada
-		//3- Tempo de execução e restante (juntos no construtor)
-		//4- tempo de prioridade
-		
-		Process processo1 = new Process (1, 0, 10, 2);
-		
-		System.out.println("ID: " + processo1.getId());
-		System.out.println("Tempo de chegada: " + processo1.getTempoChegada());
-		System.out.println("Tempo Restante: " + processo1.getTempoRestante());
-		
-		processo1.diminuirTempo(4);
-		
-		System.out.println("Depois de executar: " + processo1.getTempoRestante());
+    public static void main(String[] args) {
 
+        FilaProcessos fila = new FilaProcessos();
 
-	}
+        Process p1 = new Process(1, 0, 5, 2);
+        Process p2 = new Process(2, 1, 3, 1);
+        Process p3 = new Process(3, 2, 7, 3);
 
+        fila.addProcesso(p1);
+        fila.addProcesso(p2);
+        fila.addProcesso(p3);
+
+        System.out.println("Processos na fila:");
+        fila.ListaProcessos();
+
+        System.out.println("Quantidade: " + fila.tamanho());
+
+        System.out.println("Removendo primeiro processo...");
+        Process removido = fila.removerProcess();
+
+        System.out.println("Processo removido: " + removido.getId());
+
+        System.out.println("Fila atualizada:");
+        fila.ListaProcessos();
+
+        System.out.println("Quantidade: " + fila.tamanho());
+    }
 }
