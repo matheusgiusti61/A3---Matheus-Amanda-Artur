@@ -48,7 +48,7 @@ public class FilaProcessos {
 
 	public void ListaProcessos() {
 		for (Process processo: processos) {
-			System.out.println("Processo" + processo.getId());
+			System.out.println("Processo " + processo.getId());
 		}
 	}
 

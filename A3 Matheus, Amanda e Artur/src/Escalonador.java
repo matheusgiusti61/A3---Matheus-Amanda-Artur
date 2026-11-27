@@ -32,7 +32,7 @@ public class Escalonador {
 	}
 
 	public void devolverNaoFinalizado(Process processo, FilaProcessos fila) {
-		if (processo.finalProcesso() == false) {
+		if (processo != null && !processo.finalProcesso()) {
 			fila.addProcesso(processo);
 		}
 	}
